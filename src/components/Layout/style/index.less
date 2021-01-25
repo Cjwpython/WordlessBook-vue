@@ -1,0 +1,49 @@
+/* main */
+@layout-prefix-cls: ~"@{pre-fix}-layout";
+@aside-width: 200px !important;
+@main: 100px;
+@full-height: 100vh;
+/* main */
+
+// dashBoard-layout
+.@{layout-prefix-cls} {
+  & /deep/ .el-aside {
+    float: left;
+  }
+  /*layout header*/
+  & /deep/ .el-main {
+    padding: 0;
+  }
+  & .doshBoard-layout-header {
+    position: fixed;
+    left: 199px;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    .doshBoard-layout-header-userInfo {
+      float:right;
+    }
+  }
+  & .@{layout-prefix-cls}-content {
+    margin: 80px 10px 10px;
+  }
+  /*layout aside*/
+  .dashBoard-layout-NavLeft {
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 99;
+    width: @aside-width;
+    height: 100vh;
+  }
+  & /deep/ .el-aside.doshBoard-layout-aside {
+    width: @aside-width;
+    & /deep/ .el-menu {
+      height: 100%;
+    }
+  }
+}
+// active style
+/deep/ .active-menu {
+  background-color:rgb(64, 74, 80) !important;
+}
