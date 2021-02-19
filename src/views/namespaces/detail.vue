@@ -34,7 +34,7 @@
             <el-tooltip class="item namespace-detail-btn" effect="dark" content="修改别名" placement="top">
               <el-button size="mini" class="user-edit" @click="editChangeHandle(scope.row)" circle icon="el-icon-edit-outline"></el-button>
             </el-tooltip>
-            <el-popconfirm
+            <popconfirm
                     confirm-button-text='确定'
                     cancel-button-text='取消'
                     icon="el-icon-warning"
@@ -42,7 +42,7 @@
                     @onConfirm="envsDeleteHandle(scope.$index, scope.row)"
             >
               <el-button size="mini" slot="reference" circle icon="el-icon-delete"></el-button>
-            </el-popconfirm>
+            </popconfirm>
           </template>
         </el-table-column>
       </el-table>

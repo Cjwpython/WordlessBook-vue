@@ -9,9 +9,11 @@ import './style/element-reset.css'
 import './assets/icon/iconfont.css'
 import empty from './components/common/empty'
 import emptyData from './components/common/empty-data'
+import popconfirm from './components/common/popconfirm'
 
 Vue.component('empty', empty);
 Vue.component('emptyData', emptyData);
+Vue.component('popconfirm', popconfirm);
 
 Vue.config.productionTip = false
 router.beforeEach((to, from, next) => {
