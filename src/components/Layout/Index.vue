@@ -7,7 +7,7 @@
       <el-main>
         <nav-header></nav-header>
         <div class="dashBoard-layout-content">
-          <router-view></router-view>
+          <router-view style="padding: 20px;"></router-view>
         </div>
       </el-main>
     </el-container>

@@ -1,0 +1,37 @@
+{
+  "id": "2376013",
+  "name": "wordlessbook",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11125800",
+      "name": "空空如也",
+      "font_class": "kongkongruye",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "11254147",
+      "name": "空空如也",
+      "font_class": "kongkongruye1",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "15398136",
+      "name": "空空如也",
+      "font_class": "kongkongruye2",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "19346225",
+      "name": "公共_空空如也2",
+      "font_class": "gonggong_kongkongruye2",
+      "unicode": "e8dd",
+      "unicode_decimal": 59613
+    }
+  ]
+}

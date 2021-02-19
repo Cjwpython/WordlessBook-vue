@@ -6,8 +6,19 @@ import store from './store'
 import './plugins/element.js'
 import './style/reset.less'
 import './style/element-reset.css'
-Vue.config.productionTip = false
+import './assets/icon/iconfont.css'
+import empty from './components/common/empty'
+import emptyData from './components/common/empty-data'
 
+Vue.component('empty', empty);
+Vue.component('emptyData', emptyData);
+
+Vue.config.productionTip = false
+router.beforeEach((to, from, next) => {
+  // set title
+  to.meta.title && (document.title = to.meta.title);
+  next();
+});
 new Vue({
   router,
   store,

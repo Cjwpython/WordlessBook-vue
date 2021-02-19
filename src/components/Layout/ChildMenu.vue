@@ -7,7 +7,7 @@
           <!--如果存在subs，表示多层级子集，则递归渲染-->
           <child-menu v-if="item.subs" :menu="item" :key="item.label"></child-menu>
           <!--否则停止递归，渲染完毕-->
-          <el-menu-item v-else :index="item.url" :key="item.label" :class="{'active-menu': item.url === $route.path}">{{item.label}}</el-menu-item>
+          <el-menu-item v-else :index="item.url" :key="item.label" :disabled="item.disabled" :class="{'active-menu': item.url === $route.path}">{{item.label}}</el-menu-item>
         </template>
       </el-submenu>
     </div>

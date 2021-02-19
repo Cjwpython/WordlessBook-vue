@@ -7,7 +7,7 @@
         <!-- 子集渲染,递归组件,选中值为数据中的路由(url) -->
         <child-menu :menu="item" v-if="item.subs" :key="index"></child-menu>
         <!--非子集渲染-->
-        <el-menu-item :index="item.url" v-else :class="{'active-menu': activeIndex === item.url}">{{item.label}}</el-menu-item>
+        <el-menu-item :index="item.url" style="text-align: center;" :disabled="item.disabled" v-else :class="{'active-menu': activeIndex === item.url}">{{item.label}}</el-menu-item>
       </div>
     </el-menu>
   </div>
@@ -23,12 +23,13 @@ export default {
       activeIndex: '',
       // 临时模拟数据
       menuLists: [
-        { label: '控制台', url: '/overview' },
+        { label: '控制台', url: '/overview', disabled: true },
         { label: '环境', url: '/envs' },
-        { label: '配置', url: '/configures' },
-        { label: '权限设置', url: '/auth-settings' },
-        { label: '系统设置', url: '/system-settings' },
-        { label: '帮助', url: '/help' }
+        { label: '应用', url: '/applications', disabled: true },
+        { label: '命名空间', url: '/namespaces' },
+        { label: '权限设置', url: '/auth-settings', disabled: true },
+        { label: '系统设置', url: '/system-settings', disabled: true },
+        { label: '帮助', url: '/help', disabled: true }
         // {
         //   label: '控制中心1',
         //   url: '/console2',

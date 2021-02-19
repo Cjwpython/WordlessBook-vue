@@ -3,10 +3,11 @@ function resolve (dir) {
   return path.join(__dirname, dir)
 }
 module.exports = {
+  lintOnSave: false,
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://10.0.86.24:8000',
+        target: 'http://10.0.83.98:8899',
         changeOrigin: true
       }
     }

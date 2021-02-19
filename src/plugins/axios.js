@@ -15,7 +15,6 @@ const config = {
   // timeout: 60 * 1000, // Timeout
   // withCredentials: true, // Check cross-site Access-Control
 }
-console.log(process.env.baseURL, 'url')
 const _axios = axios.create(config)
 // const requestLists = []
 // const CancelToken = axios.CancelToken
@@ -41,14 +40,9 @@ _axios.interceptors.response.use(
     return response
   },
   function (error) {
-    console.log(error.response, 'response')
-    const { status } = error.response
-    // Message({
-    //   showClose: true,
-    //   message: '错了哦，这是一条错误消息',
-    //   type: 'error'
-    // })
-    Message.error(`状态码:${status}`)
+    const { status, data: { message } } = error.response;
+    Message.error(`${message}`);
+    console.log(`拦截错误, 错误信息: ${message}, 状态码: ${status}`);
     // Do something with response error
     return Promise.reject(error)
   }

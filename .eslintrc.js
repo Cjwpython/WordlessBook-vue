@@ -17,6 +17,8 @@ module.exports = {
     'quotes': 'off',
     'no-unused-vars': 'off',
     'dot-notation': 'off',
-    'comma-dangle': 'off'
+    'comma-dangle': 'off',
+    'semi': 'off',
+    'camelcase': 'off'
   }
 }
