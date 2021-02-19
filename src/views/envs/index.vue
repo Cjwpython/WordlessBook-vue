@@ -99,7 +99,7 @@
     <modify-envs-dialog :status.sync="modifyEnvsDialogViable" :data="editData" @success="editEnvsHandle"></modify-envs-dialog>
     <!--change namespaces-->
     <el-dialog title="变更命名空间" :visible.sync="changeEnvsDialogViable" width="20%" :close-on-click-modal="false" @close="changeDialogClose" class="addNamespacesDialog">
-      <div v-if="changeNamespaceValue.length > 0">
+      <div v-if="filterDataLists.length > 0">
         <span style="margin-bottom: 10px;display:block;">命名空间：</span>
         <el-select v-model="changeNamespaceValue" clearable size="small" style="width: 98%;" placeholder="请选择命名空间">
           <el-option
