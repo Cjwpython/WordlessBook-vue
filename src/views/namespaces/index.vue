@@ -2,7 +2,8 @@
   <div>
     <empty v-if="namespaceLists.length === 0">
       <div class="detail-empty-link">
-        暂无环境配置信息，点击<el-link type="primary" class="detail-empty-link-text" @click="addNamespaceDialogViable = true">新建</el-link>环境
+        {{addNamespaceDialogViable}}
+        暂无环境配置信息，点击<el-link type="primary" class="detail-empty-link-text" @click.native="addNamespaceDialogViable = true">新建</el-link>环境
       </div>
     </empty>
     <div v-if="namespaceLists.length > 0">
@@ -59,11 +60,11 @@
                 :total="count">
         </el-pagination>
       </section>
-      <!--添加空间-->
-      <add-namespaces-dialog :status.sync="addNamespaceDialogViable" @success="addNamespaceDialogSuccess"></add-namespaces-dialog>
-      <!--编辑命名空间-->
-      <modify-namespace-dialog :status.sync="editNamespaceDialogViable" :data="editData" @ok="editNamespaceHandle"></modify-namespace-dialog>
     </div>
+    <!--添加空间-->
+    <add-namespaces-dialog :status.sync="addNamespaceDialogViable" @success="addNamespaceDialogSuccess"></add-namespaces-dialog>
+    <!--编辑命名空间-->
+    <modify-namespace-dialog :status.sync="editNamespaceDialogViable" :data="editData" @ok="editNamespaceHandle"></modify-namespace-dialog>
   </div>
 </template>
 
@@ -115,6 +116,7 @@ export default {
     },
     // 删除
     async namespaceDeleteHandle (index, row) {
+      console.log('点击删除触发');
       const { data: { message, status_code } } = await this.$axios.delete('/namespace', { data: { namespace_id: row['_id'] } })
       if (Object.is(status_code, 200)) {
         this.$notify({ title: '成功', message, type: 'success' });
