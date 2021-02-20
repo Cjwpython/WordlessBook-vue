@@ -98,7 +98,7 @@
     <!--modify envs-->
     <modify-envs-dialog :status.sync="modifyEnvsDialogViable" :data="editData" @success="editEnvsHandle"></modify-envs-dialog>
     <!--change namespaces-->
-    <el-dialog title="变更命名空间" :visible.sync="changeEnvsDialogViable" width="20%" :close-on-click-modal="false" @close="changeDialogClose" class="addNamespacesDialog">
+    <el-dialog title="变更命名空间" :visible.sync="changeEnvsDialogViable" width="20%" :close-on-click-modal="false" @close="changeDialogOpen" class="addNamespacesDialog">
       <div v-if="filterDataLists.length > 0">
         <span style="margin-bottom: 10px;display:block;">命名空间：</span>
         <el-select v-model="changeNamespaceValue" clearable size="small" style="width: 98%;" placeholder="请选择命名空间">
@@ -222,8 +222,10 @@ export default {
         this.initialData();
       }
     },
-    // 变更命名空间dialog关闭
-    changeDialogClose () {},
+    // 更换应用dialog open 触发
+    changeDialogOpen () {
+      this.changeNamespaceValue = '';
+    },
     // 变更命名空间确定
     async changeNamespaceHandle () {
       const { namespace_id, _id } = this.changeData;

@@ -17,6 +17,7 @@ const routes = [
     path: '/',
     name: 'index',
     component: Index,
+    redirect: '/namespaces',
     children: [
       {
         path: '/namespaces',
@@ -48,6 +49,14 @@ const routes = [
         component: () => import('../views/applications'),
         meta: {
           title: '应用列表'
+        }
+      },
+      {
+        path: '/applications/:id',
+        name: 'applicationsDetail',
+        component: () => import('../views/applications/detail'),
+        meta: {
+          title: '应用详情'
         }
       }
     ]

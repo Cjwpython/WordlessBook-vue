@@ -82,6 +82,7 @@ export default {
   methods: {
     handleOpen () {
       this.$refs['addRefs'] && this.$refs['addRefs'].resetFields();
+      this.$emit('open')
     },
     handleClose () {
       this.$emit('update:status', false)

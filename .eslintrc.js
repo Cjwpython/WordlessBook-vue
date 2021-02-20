@@ -19,6 +19,7 @@ module.exports = {
     'dot-notation': 'off',
     'comma-dangle': 'off',
     'semi': 'off',
-    'camelcase': 'off'
+    'camelcase': 'off',
+    'vue/no-use-v-if-with-v-for': 'off'
   }
 }

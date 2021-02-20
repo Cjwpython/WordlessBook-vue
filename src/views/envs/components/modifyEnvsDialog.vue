@@ -1,8 +1,8 @@
 <template>
   <div>
-    <el-dialog title="修改别名" :visible.sync="dialogVisible" width="30%" :close-on-click-modal="false" @open="handleOpen" @close="handleClose" class="addNamespacesDialog">
+    <el-dialog :title="title" :visible.sync="dialogVisible" width="30%" :close-on-click-modal="false" @open="handleOpen" @close="handleClose" class="addNamespacesDialog">
       <el-form :model="editParams" status-icon :rules="rules" ref="editRefs" label-width="100px">
-        <el-form-item label="环境别名" prop="nick_name" label-width="110px">
+        <el-form-item :label="label.first" prop="nick_name" label-width="110px">
           <el-input type="text" size="small" v-model="editParams.nick_name" autocomplete="off"></el-input>
         </el-form-item>
       </el-form>
@@ -25,12 +25,24 @@ export default {
     },
     data: {
       type: Object
+    },
+    title: {
+      type: String,
+      default: '修改命名空间'
+    },
+    label: {
+      type: Object,
+      default () {
+        return {
+          first: '命名空间名称'
+        }
+      }
     }
   },
   data () {
     const validateName = (rule, value, callback) => {
       if (value === '') {
-        return callback(new Error('别名不能为空'));
+        return callback(new Error(`${this.label.first}不能为空`));
       }
       callback();
     }
@@ -56,7 +68,6 @@ export default {
     },
     data: {
       handler (val) {
-        console.log(val, 'val');
         this.$set(this.editParams, 'nick_name', val.nick_name);
       },
       deep: true
@@ -65,9 +76,10 @@ export default {
   methods: {
     handleOpen () {
       // todo open dialog
+      this.$emit('open')
     },
     handleClose () {
-      this.handleOpen();
+      this.$emit('close')
       this.$refs['editRefs'].resetFields();
       this.$emit('update:status', false)
     },

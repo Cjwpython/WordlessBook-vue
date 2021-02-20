@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     handleOpen () {
-      this.$refs['addNamespace'].resetFields();
+      this.$refs['addNamespace'] && this.$refs['addNamespace'].resetFields();
     },
     handleClose () {
       this.handleOpen();

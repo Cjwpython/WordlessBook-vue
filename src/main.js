@@ -10,7 +10,8 @@ import './assets/icon/iconfont.css'
 import empty from './components/common/empty'
 import emptyData from './components/common/empty-data'
 import popconfirm from './components/common/popconfirm'
-
+import vJsonEdit from 'v-json-edit'
+Vue.use(vJsonEdit)
 Vue.component('empty', empty);
 Vue.component('emptyData', emptyData);
 Vue.component('popconfirm', popconfirm);
