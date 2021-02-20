@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { isEmpty } from '@/plugins/core/lib'
 export default {
   name: 'json',
   props: ['dataList'],
@@ -30,6 +31,10 @@ export default {
     },
     async addAndChangeApplicationsHandle () {
       const value = { configs: this.detailData.length > 0 ? this.detailData : this.json }
+      if (isEmpty(value.configs)) {
+        this.$message.error('参数数据类型必须为数组类型且不能为空');
+        return false;
+      }
       const { data } = await this.$axios.post(`/application/${this.$route.params.id}`, { ...value });
       if (Object.is(data['status_code'], 200)) {
         this.$notify({ title: '成功', message: data.message, type: 'success' });
@@ -41,6 +46,9 @@ export default {
 </script>
 
 <style scoped lang="less">
+.applications-detail-alert {
+  margin: 10px 0;
+}
 .json-mode {
   & /deep/ .jsonEditor-vue {
     height: 750px !important;
