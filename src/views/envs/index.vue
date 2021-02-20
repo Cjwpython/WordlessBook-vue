@@ -197,9 +197,15 @@ export default {
       }
     },
     // 改变条数时触发
-    envsListsSizeChangeHandle () {},
+    envsListsSizeChangeHandle (val) {
+      this.params.current_max_row = val;
+      this.initialData();
+    },
     // 当分页时触发
-    envsListsChangeHandle () {},
+    envsListsChangeHandle (val) {
+      this.params.current_page = val;
+      this.initialData();
+    },
     // dialog 添加环境
     async addEnvsHandle (val) {
       const { data } = await this.$axios.post('/env', { namespace_id: this.namespaceSelectValue, ...val });
@@ -256,6 +262,7 @@ export default {
   display:flex;
   justify-content: flex-end;
   align-items: center;
+  margin: 20px 0;
 }
 .detail-empty-link {
   display:flex;

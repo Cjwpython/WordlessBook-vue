@@ -25,7 +25,7 @@ export default {
       menuLists: [
         { label: '控制台', url: '/overview', disabled: true },
         { label: '环境', url: '/envs' },
-        { label: '应用', url: '/applications', disabled: true },
+        { label: '应用', url: '/applications', disabled: false },
         { label: '命名空间', url: '/namespaces' },
         { label: '权限设置', url: '/auth-settings', disabled: true },
         { label: '系统设置', url: '/system-settings', disabled: true },
