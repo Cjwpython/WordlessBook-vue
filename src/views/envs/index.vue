@@ -173,8 +173,8 @@ export default {
     },
     // 详情
     async handleDetail (row) {
-      const { data: { data } } = await this.$axios.get(`/env/${row['_id']}`);
-      console.log(data, 'data');
+      const routeData = this.$router.resolve({ name: 'envDetail', params: { id: row['_id'] } });
+      window.open(routeData.href, '_blank');
     },
     // 变更命名空间
     handleChange (row) {

@@ -44,6 +44,14 @@ const routes = [
         }
       },
       {
+        path: '/envs/:id',
+        name: 'envDetail',
+        component: () => import('../views/envs/detail'),
+        meta: {
+          title: '环境详情'
+        }
+      },
+      {
         path: '/applications',
         name: 'applications',
         component: () => import('../views/applications'),
